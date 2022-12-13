@@ -13,7 +13,13 @@ final class HomeView: UIView {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: CharacterLayout())
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.identifier)
+        cv.refreshControl = refreshControl
         return cv
+    }()
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let rc = UIRefreshControl()
+        return rc
     }()
     
     init() {

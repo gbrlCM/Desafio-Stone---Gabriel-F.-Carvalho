@@ -22,6 +22,9 @@
 		5BEDBC0E2947D94300513E3A /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC0D2947D94300513E3A /* CharacterCell.swift */; };
 		5BEDBC122948B80200513E3A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC112948B80200513E3A /* Endpoint.swift */; };
 		5BEDBC142948B95600513E3A /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC132948B95600513E3A /* Routes.swift */; };
+		5BEDBC162948CAC200513E3A /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC152948CAC200513E3A /* HomeInteractor.swift */; };
+		5BEDBC192948CB6900513E3A /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC182948CB6900513E3A /* Reducer.swift */; };
+		5BEDBC1B2948CB7300513E3A /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC1A2948CB7300513E3A /* Interactor.swift */; };
 		C1D0693C2767DA8B00883CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0693B2767DA8B00883CE8 /* AppDelegate.swift */; };
 		C1D0693E2767DA8B00883CE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0693D2767DA8B00883CE8 /* SceneDelegate.swift */; };
 		C1D069452767DA8C00883CE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1D069442767DA8C00883CE8 /* Assets.xcassets */; };
@@ -50,6 +53,9 @@
 		5BEDBC0D2947D94300513E3A /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		5BEDBC112948B80200513E3A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		5BEDBC132948B95600513E3A /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		5BEDBC152948CAC200513E3A /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		5BEDBC182948CB6900513E3A /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
+		5BEDBC1A2948CB7300513E3A /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		C1D069382767DA8B00883CE8 /* StoneChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoneChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D0693B2767DA8B00883CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1D0693D2767DA8B00883CE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +124,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		5BEDBC172948CB5800513E3A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5BEDBC182948CB6900513E3A /* Reducer.swift */,
+				5BEDBC1A2948CB7300513E3A /* Interactor.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		C1D0692F2767DA8B00883CE8 = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +182,7 @@
 		C1D069512767DBCE00883CE8 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				5BEDBC172948CB5800513E3A /* Protocols */,
 				5BEDBC042947B11D00513E3A /* Models */,
 				5BEDBBFE2947AFE100513E3A /* Environment */,
 				C1D0694F2767DBAE00883CE8 /* Application */,
@@ -182,6 +198,7 @@
 				5BEDBC072947D87000513E3A /* HomeView.swift */,
 				5BEDBC092947D88C00513E3A /* HomePresenter.swift */,
 				5BEDBC0D2947D94300513E3A /* CharacterCell.swift */,
+				5BEDBC152948CAC200513E3A /* HomeInteractor.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -309,13 +326,16 @@
 				C1D0693C2767DA8B00883CE8 /* AppDelegate.swift in Sources */,
 				5BEDBC082947D87000513E3A /* HomeView.swift in Sources */,
 				5BEDBC032947B02F00513E3A /* APIService.swift in Sources */,
+				5BEDBC162948CAC200513E3A /* HomeInteractor.swift in Sources */,
 				5BEDBC002947AFF000513E3A /* AppEnvironment.swift in Sources */,
 				5BEDBC122948B80200513E3A /* Endpoint.swift in Sources */,
 				5BEDBC062947D70000513E3A /* RMCharacter.swift in Sources */,
 				5BEDBC0E2947D94300513E3A /* CharacterCell.swift in Sources */,
 				C1D0693E2767DA8B00883CE8 /* SceneDelegate.swift in Sources */,
 				5BEDBC142948B95600513E3A /* Routes.swift in Sources */,
+				5BEDBC192948CB6900513E3A /* Reducer.swift in Sources */,
 				C1D069552767DE6800883CE8 /* HomeViewController.swift in Sources */,
+				5BEDBC1B2948CB7300513E3A /* Interactor.swift in Sources */,
 				5BEDBC0A2947D88C00513E3A /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
