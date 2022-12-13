@@ -8,7 +8,7 @@ class HomeViewController: UIViewController {
     private var disposeBag = DisposeBag()
     private let presenter: HomePresenter
     
-    init(presenter: HomePresenter = HomePresenter()) {
+    init(presenter: HomePresenter = HomePresenter(interactor: HomeInteractor(initialState: HomeState()))) {
         self.disposeBag = DisposeBag()
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         title = "Home"
         setupItems()
+        presenter.viewDidLoad()
         setupBarButtonItems()
     }
     
@@ -49,6 +50,28 @@ class HomeViewController: UIViewController {
                 presenter.itemSelected(at: index)
             }
             .disposed(by: disposeBag)
+        
+        contentView
+            .characterCollection
+            .rx
+            .didScroll
+            .map { [weak characterCollection = contentView.characterCollection] _ in
+                guard let characterCollection else { return false }
+                return characterCollection.didScrollToTheEnd
+            }
+            .distinctUntilChanged()
+            .filter { $0 }
+            .subscribe(with: presenter, onNext: { presenter, _ in presenter.loadMoreItems() })
+            .disposed(by: disposeBag)
     }
 }
 
+extension UICollectionView {
+    var didScrollToTheEnd: Bool {
+        let contentYOffset = contentOffset.y
+        let contentHeight = contentSize.height
+        let endTreshold: CGFloat = 70
+        
+        return contentYOffset > (contentHeight - frame.size.height - endTreshold)
+    }
+}
