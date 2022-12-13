@@ -72,6 +72,6 @@ extension UICollectionView {
         let contentHeight = contentSize.height
         let endTreshold: CGFloat = 70
         
-        return contentYOffset > (contentHeight - frame.size.height - endTreshold)
+        return contentYOffset > (contentHeight - frame.size.height - endTreshold) && !self.indexPathsForVisibleItems.isEmpty
     }
 }

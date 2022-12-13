@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class CharacterCell: UICollectionViewCell {
     static let identifier = "com.stonechallenge.sources.home.charactercell"
@@ -22,6 +24,8 @@ class CharacterCell: UICollectionViewCell {
         label.textAlignment = .left
         return label
     }()
+    
+    private var disposeBag = DisposeBag()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -66,8 +70,20 @@ class CharacterCell: UICollectionViewCell {
     
     func setup(with viewModel: CharacterCellViewModel) {
         characterName.text = viewModel.name
-        // Lidar com imagem
-        avatar.image = UIImage(named: "dummyImage")
+        loadImage(for: viewModel.imageUrl)
+        
+    }
+    
+    private func loadImage(for url: URL) {
+        CurrentEnv.api.fetchImage(url)
+            .bind(to: avatar.rx.image)
+            .disposed(by: disposeBag)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        avatar.image = nil
+        disposeBag = DisposeBag()
     }
 }
 

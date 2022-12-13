@@ -66,23 +66,21 @@ protocol Interactor {
     func send(_ action: Action)
 }
 
-protocol HomeInteractorProtocol: Interactor where State == HomeState, Action == HomeAction {}
+protocol Reducer: AnyObject {
+    
+    associatedtype State
+    associatedtype Action
+    
+    
+    var store: BehaviorRelay<State> { get }
+    var actionSubject: PublishSubject<Action> { get }
+    var disposeBag: DisposeBag { get }
+    
+    func bind()
+    func reduce(action: Action, previousState: State) -> Observable<State>
+}
 
-final class HomeInteractor: HomeInteractorProtocol {
-    private let store: BehaviorRelay<HomeState>
-    private let actionSubject: PublishSubject<HomeAction>
-    private var disposeBag = DisposeBag()
-    
-    var observable: Observable<HomeState> {
-        store.asObservable()
-    }
-    
-    init(initialState: HomeState) {
-        self.store = BehaviorRelay(value: initialState)
-        self.actionSubject = PublishSubject<HomeAction>()
-        bind()
-    }
-    
+extension Reducer {
     func bind() {
         actionSubject
             .flatMap {[weak self] action in
@@ -95,12 +93,30 @@ final class HomeInteractor: HomeInteractorProtocol {
             .bind(to: store)
             .disposed(by: disposeBag)
     }
+}
+
+protocol HomeInteractorProtocol: Interactor where State == HomeState, Action == HomeAction {}
+
+final class HomeInteractor: HomeInteractorProtocol, Reducer {
+    let store: BehaviorRelay<HomeState>
+    let actionSubject: PublishSubject<HomeAction>
+    var disposeBag = DisposeBag()
+    
+    var observable: Observable<HomeState> {
+        store.asObservable()
+    }
+    
+    init(initialState: HomeState) {
+        self.store = BehaviorRelay(value: initialState)
+        self.actionSubject = PublishSubject<HomeAction>()
+        bind()
+    }
     
     func send(_ action: HomeAction) {
         actionSubject.on(.next(action))
     }
     
-    private func reduce(action: HomeAction, previousState: HomeState) -> Observable<HomeState> {
+    func reduce(action: HomeAction, previousState: HomeState) -> Observable<HomeState> {
         switch action {
         case .loadMoreItems(let textFilter, let statusFilter):
             return loadMoreItemsObservable(
@@ -109,6 +125,10 @@ final class HomeInteractor: HomeInteractorProtocol {
                 statusFilter: statusFilter
             )
         case .initialLoad(let textFilter, let statusFilter):
+            var loadState = previousState
+            loadState.viewState = .loading
+            store.accept(loadState)
+            
             return loadMoreItemsObservable(
                 previousState: HomeState(), //Reset state
                 textFilter: textFilter,
@@ -126,6 +146,7 @@ final class HomeInteractor: HomeInteractorProtocol {
                 var newState = previousState
                 newState.characters.append(contentsOf: cells)
                 newState.currentPage += 1
+                newState.viewState = .loaded
                 return newState
             }
             .catchAndReturn({

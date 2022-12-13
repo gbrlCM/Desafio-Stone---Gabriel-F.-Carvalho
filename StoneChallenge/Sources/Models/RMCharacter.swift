@@ -8,14 +8,14 @@
 import Foundation
 
 struct RMCharacter: Codable {
-    let id: String
+    let id: Int
     let name: String
     let status: Status
     let species: String
     let type: String
     let gender: String
     let origin: Origin
-    let localtion: Location
+    let location: Location
     let image: URL
     let episode: [URL]
     
@@ -30,6 +30,6 @@ struct RMCharacter: Codable {
     enum Status: String, Codable {
         case alive = "Alive"
         case dead = "Dead"
-        case unknown = "Unknown"
+        case unknown = "unknown"
     }
 }
