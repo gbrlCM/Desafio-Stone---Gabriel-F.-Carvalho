@@ -19,7 +19,6 @@
 		5BEDBC062947D70000513E3A /* RMCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC052947D70000513E3A /* RMCharacter.swift */; };
 		5BEDBC082947D87000513E3A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC072947D87000513E3A /* HomeView.swift */; };
 		5BEDBC0A2947D88C00513E3A /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC092947D88C00513E3A /* HomePresenter.swift */; };
-		5BEDBC0C2947D89800513E3A /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC0B2947D89800513E3A /* HomeInteractor.swift */; };
 		5BEDBC0E2947D94300513E3A /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC0D2947D94300513E3A /* CharacterCell.swift */; };
 		C1D0693C2767DA8B00883CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0693B2767DA8B00883CE8 /* AppDelegate.swift */; };
 		C1D0693E2767DA8B00883CE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0693D2767DA8B00883CE8 /* SceneDelegate.swift */; };
@@ -46,7 +45,6 @@
 		5BEDBC052947D70000513E3A /* RMCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacter.swift; sourceTree = "<group>"; };
 		5BEDBC072947D87000513E3A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5BEDBC092947D88C00513E3A /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
-		5BEDBC0B2947D89800513E3A /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		5BEDBC0D2947D94300513E3A /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		C1D069382767DA8B00883CE8 /* StoneChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoneChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D0693B2767DA8B00883CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				C1D069542767DE6800883CE8 /* HomeViewController.swift */,
 				5BEDBC072947D87000513E3A /* HomeView.swift */,
 				5BEDBC092947D88C00513E3A /* HomePresenter.swift */,
-				5BEDBC0B2947D89800513E3A /* HomeInteractor.swift */,
 				5BEDBC0D2947D94300513E3A /* CharacterCell.swift */,
 			);
 			path = Home;
@@ -310,7 +307,6 @@
 				5BEDBC062947D70000513E3A /* RMCharacter.swift in Sources */,
 				5BEDBC0E2947D94300513E3A /* CharacterCell.swift in Sources */,
 				C1D0693E2767DA8B00883CE8 /* SceneDelegate.swift in Sources */,
-				5BEDBC0C2947D89800513E3A /* HomeInteractor.swift in Sources */,
 				C1D069552767DE6800883CE8 /* HomeViewController.swift in Sources */,
 				5BEDBC0A2947D88C00513E3A /* HomePresenter.swift in Sources */,
 			);

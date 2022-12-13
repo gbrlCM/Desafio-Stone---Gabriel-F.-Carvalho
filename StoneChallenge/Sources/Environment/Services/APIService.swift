@@ -13,7 +13,7 @@ final class APIService {
     
     static let shared = APIService()
     
-    func fetchCharactersList(name: String? = nil, page: Int = 1, status: RMCharacter.Status? = nil) -> Observable<RMCharacter> {
+    func fetchCharactersList(name: String? = nil, page: Int = 1, status: RMCharacter.Status? = nil) -> Observable<[RMCharacter]> {
         fatalError()
     }
     
