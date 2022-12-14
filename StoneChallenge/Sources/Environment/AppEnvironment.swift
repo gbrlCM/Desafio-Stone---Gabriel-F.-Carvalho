@@ -17,7 +17,6 @@ struct AppEnvironment {
 struct API {
     var fetchCharactersList: (String?, Int, RMCharacter.Status?) -> Observable<[RMCharacter]> = APIService.shared.fetchCharactersList
     var fetchSingleCharacter: (String) -> Observable<RMCharacter> = APIService.shared.fetchSingleCharacter
-    var fetchImage: (URL) -> Observable<UIImage?> = APIService.shared.fetchImage
 }
 
 struct ImageHandler {

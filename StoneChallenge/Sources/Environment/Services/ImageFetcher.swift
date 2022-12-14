@@ -19,6 +19,10 @@ final class ImageFetcher {
         self.cache = cache
     }
     
+    private func configurateCache() {
+        cache.countLimit = 150
+        cache.totalCostLimit = 100_000_000
+    }
     
     func fetch(url: URL) -> Observable<UIImage?> {
         if let image = cache.object(forKey: url as NSURL) {

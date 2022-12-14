@@ -42,7 +42,7 @@ final class HomePresenter: HomePresenterProtocol {
     }
     
     func viewDidLoad() {
-        interactor.send(.initialLoad(textFilter: nil, statusFilter: nil))
+        interactor.send(.initialLoad)
     }
     
     func itemSelected(at index: Int) {
@@ -50,7 +50,7 @@ final class HomePresenter: HomePresenterProtocol {
     }
     
     func loadMoreItems() {
-        interactor.send(.loadMoreItems(textFilter: nil, statusFilter: nil))
+        interactor.send(.loadMoreItems)
     }
     
 }
