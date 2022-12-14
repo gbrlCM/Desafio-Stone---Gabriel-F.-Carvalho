@@ -15,6 +15,7 @@ class CharacterCell: UICollectionViewCell {
     private lazy var avatar: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFill
         return image
     }()
     
@@ -48,7 +49,7 @@ class CharacterCell: UICollectionViewCell {
             avatar.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             avatar.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             avatar.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            avatar.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.7)
+            avatar.heightAnchor.constraint(equalToConstant: 150)
         ]
         
         let characterNameConstraints: [NSLayoutConstraint] = [
@@ -75,15 +76,15 @@ class CharacterCell: UICollectionViewCell {
     }
     
     private func loadImage(for url: URL) {
-        CurrentEnv.api.fetchImage(url)
+        CurrentEnv.image.fetch(url)
             .bind(to: avatar.rx.image)
             .disposed(by: disposeBag)
     }
     
     override func prepareForReuse() {
-        super.prepareForReuse()
-        avatar.image = nil
         disposeBag = DisposeBag()
+        avatar.image = nil
+        super.prepareForReuse()
     }
 }
 

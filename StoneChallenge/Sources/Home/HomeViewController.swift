@@ -25,6 +25,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         title = "Home"
         setupItems()
+        setupItemsSelection()
+        setupInfiniteScroll()
         presenter.viewDidLoad()
         setupBarButtonItems()
     }
@@ -36,11 +38,14 @@ class HomeViewController: UIViewController {
     private func setupItems() {
         presenter
             .characters
+            .observe(on: MainScheduler.instance)
             .bind(to: contentView.characterCollection.rx.items(cellIdentifier: CharacterCell.identifier, cellType: CharacterCell.self)) { index, item, cell in
                 cell.setup(with: item)
             }
             .disposed(by: disposeBag)
-        
+    }
+    
+    private func setupItemsSelection() {
         contentView
             .characterCollection
             .rx
@@ -50,7 +55,9 @@ class HomeViewController: UIViewController {
                 presenter.itemSelected(at: index)
             }
             .disposed(by: disposeBag)
-        
+    }
+    
+    private func setupInfiniteScroll() {
         contentView
             .characterCollection
             .rx
@@ -61,6 +68,7 @@ class HomeViewController: UIViewController {
             }
             .distinctUntilChanged()
             .filter { $0 }
+            .observe(on: MainScheduler.instance)
             .subscribe(with: presenter, onNext: { presenter, _ in presenter.loadMoreItems() })
             .disposed(by: disposeBag)
     }

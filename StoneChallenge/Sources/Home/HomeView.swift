@@ -13,6 +13,7 @@ final class HomeView: UIView {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: CharacterLayout())
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.identifier)
+        cv.insetsLayoutMarginsFromSafeArea = true
         cv.refreshControl = refreshControl
         return cv
     }()
@@ -40,8 +41,8 @@ final class HomeView: UIView {
     private func setupConstraints() {
         let characterCollectionConstraints: [NSLayoutConstraint] = [
             characterCollection.topAnchor.constraint(equalTo: topAnchor),
-            characterCollection.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            characterCollection.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            characterCollection.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            characterCollection.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             characterCollection.bottomAnchor.constraint(equalTo: bottomAnchor)
         ]
         

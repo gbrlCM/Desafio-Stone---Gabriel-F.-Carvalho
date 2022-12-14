@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B7E240129496ABE009D8EA4 /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E240029496ABE009D8EA4 /* ImageFetcher.swift */; };
+		5B7E2404294A0DAC009D8EA4 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E2403294A0DAC009D8EA4 /* FilterView.swift */; };
 		5BEDBBE3294786B100513E3A /* StoneChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBBE2294786B100513E3A /* StoneChallengeTests.swift */; };
 		5BEDBBEB2947889800513E3A /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 5BEDBBEA2947889800513E3A /* RxBlocking */; };
 		5BEDBBEF2947889800513E3A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 5BEDBBEE2947889800513E3A /* RxCocoa */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B7E240029496ABE009D8EA4 /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
+		5B7E2403294A0DAC009D8EA4 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		5BEDBBE0294786B100513E3A /* StoneChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoneChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BEDBBE2294786B100513E3A /* StoneChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoneChallengeTests.swift; sourceTree = "<group>"; };
 		5BEDBBFF2947AFF000513E3A /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
@@ -89,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B7E2402294A0D8A009D8EA4 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				5B7E2403294A0DAC009D8EA4 /* FilterView.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
 		5BEDBBE1294786B100513E3A /* StoneChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +123,7 @@
 			children = (
 				5BEDBC022947B02F00513E3A /* APIService.swift */,
 				5BEDBC132948B95600513E3A /* Routes.swift */,
+				5B7E240029496ABE009D8EA4 /* ImageFetcher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -182,6 +195,7 @@
 		C1D069512767DBCE00883CE8 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				5B7E2402294A0D8A009D8EA4 /* Filter */,
 				5BEDBC172948CB5800513E3A /* Protocols */,
 				5BEDBC042947B11D00513E3A /* Models */,
 				5BEDBBFE2947AFE100513E3A /* Environment */,
@@ -332,8 +346,10 @@
 				5BEDBC062947D70000513E3A /* RMCharacter.swift in Sources */,
 				5BEDBC0E2947D94300513E3A /* CharacterCell.swift in Sources */,
 				C1D0693E2767DA8B00883CE8 /* SceneDelegate.swift in Sources */,
+				5B7E240129496ABE009D8EA4 /* ImageFetcher.swift in Sources */,
 				5BEDBC142948B95600513E3A /* Routes.swift in Sources */,
 				5BEDBC192948CB6900513E3A /* Reducer.swift in Sources */,
+				5B7E2404294A0DAC009D8EA4 /* FilterView.swift in Sources */,
 				C1D069552767DE6800883CE8 /* HomeViewController.swift in Sources */,
 				5BEDBC1B2948CB7300513E3A /* Interactor.swift in Sources */,
 				5BEDBC0A2947D88C00513E3A /* HomePresenter.swift in Sources */,
