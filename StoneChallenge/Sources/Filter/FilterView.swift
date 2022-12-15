@@ -20,5 +20,35 @@ class FilterView: UIView {
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
-
+    
+    init() {
+        super.init(frame: .zero)
+        setupHierarchy()
+        setupConstraints()
+        setupStyle()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupHierarchy() {
+        addSubview(nameTextField)
+        addSubview(buttonsStack)
+    }
+    
+    private func setupConstraints() {
+        let nameConstraints: [NSLayoutConstraint] = [
+            nameTextField.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -8),
+            nameTextField.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            nameTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            nameTextField.heightAnchor.constraint(greaterThanOrEqualToConstant: 44)
+        ]
+        
+        NSLayoutConstraint.activate(nameConstraints)
+    }
+    
+    private func setupStyle() {
+        backgroundColor = .systemBackground
+    }
 }

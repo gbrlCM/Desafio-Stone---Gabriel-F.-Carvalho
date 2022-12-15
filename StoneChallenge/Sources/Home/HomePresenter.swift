@@ -15,9 +15,12 @@ protocol HomePresenterProtocol {
     func itemSelected(at index: Int)
     func initialLoad()
     func loadMoreItems()
+    func displayFilter()
 }
 
 final class HomePresenter: HomePresenterProtocol {
+    
+    weak var mainCoordinator: MainCoordinatorProtocol?
     
     private let interactor: any HomeInteractorProtocol
     private let disposeBag = DisposeBag()
@@ -42,6 +45,10 @@ final class HomePresenter: HomePresenterProtocol {
     
     func loadMoreItems() {
         interactor.send(.loadMoreItems)
+    }
+    
+    func displayFilter() {
+        mainCoordinator?.displayFilter()
     }
     
 }

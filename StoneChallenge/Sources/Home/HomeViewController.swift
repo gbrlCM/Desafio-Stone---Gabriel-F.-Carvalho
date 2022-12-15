@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setupBarButtonItems() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(filterBarButtonItemTapped))
     }
     
     private func setupNavigationBarStyle() {
@@ -125,6 +125,10 @@ class HomeViewController: UIViewController {
                 }
             }
             .disposed(by: disposeBag)
+    }
+    
+    @objc private func filterBarButtonItemTapped() {
+        presenter.displayFilter()
     }
 }
 
