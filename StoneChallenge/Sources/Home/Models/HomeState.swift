@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HomeState {
+struct HomeState: Equatable {
     var characters: [RMCharacter] = []
     var currentPage: Int = 1
     var pageLimit: Int = 42

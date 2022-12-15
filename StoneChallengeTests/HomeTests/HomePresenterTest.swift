@@ -19,6 +19,7 @@ final class HomePresenterTest: XCTestCase {
     var scheduler: TestScheduler!
 
     override func setUp() {
+        CurrentEnv = .mock
         interactorMock = HomeInteractorMock(initialState: HomeState())
         coordinatorMock = MainCoordinatorMock()
         sut = HomePresenter(interactor: interactorMock)

@@ -28,6 +28,9 @@
 		5BA4EE31294B539E00507FE2 /* HomeInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE30294B539E00507FE2 /* HomeInteractorMock.swift */; };
 		5BA4EE33294B584E00507FE2 /* MainCoordinatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE32294B584E00507FE2 /* MainCoordinatorMock.swift */; };
 		5BA4EE35294B59C800507FE2 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE34294B59C800507FE2 /* Array+Utils.swift */; };
+		5BA4EE37294B5FE100507FE2 /* EnvironmentMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE36294B5FE100507FE2 /* EnvironmentMock.swift */; };
+		5BA4EE39294B625800507FE2 /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE38294B625800507FE2 /* HomeInteractorTests.swift */; };
+		5BA4EE3B294B64C800507FE2 /* ModelsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE3A294B64C800507FE2 /* ModelsMock.swift */; };
 		5BD59C66294A3ACE00DDBE59 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD59C65294A3ACE00DDBE59 /* DataFetcher.swift */; };
 		5BEDBC002947AFF000513E3A /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBBFF2947AFF000513E3A /* AppEnvironment.swift */; };
 		5BEDBC032947B02F00513E3A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC022947B02F00513E3A /* APIService.swift */; };
@@ -92,6 +95,9 @@
 		5BA4EE30294B539E00507FE2 /* HomeInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorMock.swift; sourceTree = "<group>"; };
 		5BA4EE32294B584E00507FE2 /* MainCoordinatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorMock.swift; sourceTree = "<group>"; };
 		5BA4EE34294B59C800507FE2 /* Array+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
+		5BA4EE36294B5FE100507FE2 /* EnvironmentMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentMock.swift; sourceTree = "<group>"; };
+		5BA4EE38294B625800507FE2 /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
+		5BA4EE3A294B64C800507FE2 /* ModelsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsMock.swift; sourceTree = "<group>"; };
 		5BD59C65294A3ACE00DDBE59 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		5BEDBBE0294786B100513E3A /* StoneChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoneChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BEDBBFF2947AFF000513E3A /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
@@ -161,6 +167,8 @@
 				5BA4EDB5294A925800507FE2 /* DataFetcherMock.swift */,
 				5BA4EE30294B539E00507FE2 /* HomeInteractorMock.swift */,
 				5BA4EE32294B584E00507FE2 /* MainCoordinatorMock.swift */,
+				5BA4EE36294B5FE100507FE2 /* EnvironmentMock.swift */,
+				5BA4EE3A294B64C800507FE2 /* ModelsMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -235,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				5BA4EE2E294B538E00507FE2 /* HomePresenterTest.swift */,
+				5BA4EE38294B625800507FE2 /* HomeInteractorTests.swift */,
 			);
 			path = HomeTests;
 			sourceTree = "<group>";
@@ -567,9 +576,12 @@
 				5BA4EDC1294A94AF00507FE2 /* ImageFetcherTests.swift in Sources */,
 				5BA4EDB6294A925800507FE2 /* DataFetcherMock.swift in Sources */,
 				5BA4EE13294AB71700507FE2 /* Rx+Utils.swift in Sources */,
+				5BA4EE39294B625800507FE2 /* HomeInteractorTests.swift in Sources */,
 				5BA4EE31294B539E00507FE2 /* HomeInteractorMock.swift in Sources */,
 				5BA4EE2F294B538E00507FE2 /* HomePresenterTest.swift in Sources */,
 				5BA4EE33294B584E00507FE2 /* MainCoordinatorMock.swift in Sources */,
+				5BA4EE3B294B64C800507FE2 /* ModelsMock.swift in Sources */,
+				5BA4EE37294B5FE100507FE2 /* EnvironmentMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,8 +22,4 @@ final class APIService {
         session.fetch(from: Route.character(page: page, textFilter: name, statusFilter: status).request)
             .decode(type: CharactersResponse.self, decoder: JSONDecoder())
     }
-    
-    func fetchSingleCharacter(id: String) -> Observable<RMCharacter> {
-        fatalError()
-    }
 }
