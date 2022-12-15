@@ -62,6 +62,7 @@ final class HomeInteractor: HomeInteractorProtocol, Reducer {
             .map { response in
                 var newState = previousState
                 newState.characters.append(contentsOf: response.results)
+                newState.pageLimit = response.info.pages
                 newState.currentPage += 1
                 newState.viewState = .loaded
                 return newState

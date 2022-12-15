@@ -23,6 +23,24 @@ final class HomeView: UIView {
         return rc
     }()
     
+    lazy var progressIndicator: UIActivityIndicatorView = {
+        let act = UIActivityIndicatorView(style: .medium)
+        act.color = .systemGreen
+        act.translatesAutoresizingMaskIntoConstraints = false
+        act.hidesWhenStopped = true
+        return act
+    }()
+    
+    lazy var errorLabel: UILabel = {
+        let l = UILabel()
+        l.translatesAutoresizingMaskIntoConstraints = false
+        l.font = .preferredFont(forTextStyle: .body)
+        l.textColor = .systemRed
+        l.isHidden = true
+        l.text = "Ocorreu um erro, arraste para cima para recarregar"
+        return l
+    }()
+    
     init() {
         super.init(frame: .zero)
         setupHirearchy()
@@ -36,6 +54,8 @@ final class HomeView: UIView {
     
     private func setupHirearchy() {
         addSubview(characterCollection)
+        addSubview(progressIndicator)
+        addSubview(errorLabel)
     }
     
     private func setupConstraints() {
@@ -46,6 +66,20 @@ final class HomeView: UIView {
             characterCollection.bottomAnchor.constraint(equalTo: bottomAnchor)
         ]
         
+        let progressIndicatorConstraints = [
+            progressIndicator.centerYAnchor.constraint(equalTo: centerYAnchor),
+            progressIndicator.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ]
+        
+        let errorLabelConstraints = [
+            errorLabel.topAnchor.constraint(equalTo: topAnchor),
+            errorLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            errorLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            errorLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ]
+        
+        NSLayoutConstraint.activate(errorLabelConstraints)
+        NSLayoutConstraint.activate(progressIndicatorConstraints)
         NSLayoutConstraint.activate(characterCollectionConstraints)
     }
     

@@ -1,5 +1,4 @@
 import UIKit
-import RxCocoa
 import RxSwift
 
 class HomeViewController: UIViewController {
@@ -28,12 +27,19 @@ class HomeViewController: UIViewController {
         setupItemsSelection()
         setupInfiniteScroll()
         setupPullUpToRefresh()
+        setupViewState()
         presenter.initialLoad()
         setupBarButtonItems()
+        setupNavigationBarStyle()
     }
     
     private func setupBarButtonItems() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: nil)
+    }
+    
+    private func setupNavigationBarStyle() {
+        navigationItem.title = "Rick and Morty"
+        navigationController?.navigationBar.applyDefaultStyle()
     }
     
     private func setupItems() {
@@ -85,5 +91,48 @@ class HomeViewController: UIViewController {
                 presenter.initialLoad()
             }
             .disposed(by: disposeBag)
+        
+        presenter
+            .viewModel
+            .map(\.cells)
+            .observe(on: MainScheduler.instance)
+            .subscribe(with: contentView) { contentView, _ in
+                guard contentView.refreshControl.isRefreshing else { return }
+                contentView.refreshControl.endRefreshing()
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func setupViewState() {
+        presenter
+            .viewModel
+            .map(\.viewState)
+            .observe(on: MainScheduler.instance)
+            .subscribe(with: contentView) {contentView, state in
+                switch state {
+                case .loaded:
+                    contentView.characterCollection.isHidden = false
+                    contentView.errorLabel.isHidden = true
+                    contentView.progressIndicator.stopAnimating()
+                case .loading:
+                    contentView.characterCollection.isHidden = true
+                    contentView.progressIndicator.startAnimating()
+                    contentView.errorLabel.isHidden = true
+                case .error:
+                    contentView.characterCollection.isHidden = true
+                    contentView.errorLabel.isHidden = false
+                    contentView.progressIndicator.stopAnimating()
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+}
+
+extension UINavigationBar {
+    public func applyDefaultStyle() {
+        prefersLargeTitles = true
+        largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "AccentColor")]
+        titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "AccentColor")]
+        
     }
 }

@@ -53,8 +53,7 @@ struct HomeViewModel: Equatable {
     
     init(from state: HomeState) {
         cells = state.characters.map(CharacterCellViewModel.init(character:))
-        #warning("Logica de limite de pagina")
-        canLoadMore = true
+        canLoadMore = state.currentPage < state.pageLimit
         viewState = state.viewState
     }
 }

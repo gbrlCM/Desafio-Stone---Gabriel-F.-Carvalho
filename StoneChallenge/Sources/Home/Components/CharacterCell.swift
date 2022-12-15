@@ -15,7 +15,7 @@ class CharacterCell: UICollectionViewCell {
     private lazy var avatar: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFill
+        image.contentMode = .scaleToFill
         return image
     }()
     
