@@ -28,7 +28,3 @@ final class APIService {
         fatalError()
     }
 }
-
-struct CharactersResponse: Codable {
-    var results: [RMCharacter]
-}

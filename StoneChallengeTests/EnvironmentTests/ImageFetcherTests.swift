@@ -101,33 +101,5 @@ final class ImageFetcherTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
         
         XCTAssertNotNil(observer.nextEvents[0])
-        
-    }
-}
-
-extension TestableObserver {
-    var nextEvents: [Element] {
-        return events.compactMap {
-            guard case let .next(value) = $0.value else {
-                return nil
-            }
-            return value
-        }
-    }
-    
-    
-}
-
-extension Observable {
-    func fulfillOnNext(_ expectation: XCTestExpectation) -> Observable<Element> {
-        self.do(onNext: { _ in expectation.fulfill() })
-    }
-    
-    func fulfillAfterCompletion(_ expectation: XCTestExpectation) -> Observable<Element> {
-        self.do(afterCompleted: {  expectation.fulfill() })
-    }
-    
-    func fulfillAfterError(_ expectation: XCTestExpectation) -> Observable<Element> {
-        self.do(afterError: { _ in expectation.fulfill() })
     }
 }

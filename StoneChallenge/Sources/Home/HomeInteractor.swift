@@ -77,21 +77,3 @@ final class HomeInteractor: HomeInteractorProtocol, Reducer {
         }
     
 }
-
-struct HomeState {
-    var characters: [CharacterCellViewModel] = []
-    var currentPage: Int = 1
-    var viewState: ViewState = .loading
-    var nameFilter: String?
-    var statusFilter: RMCharacter.Status?
-}
-
-enum ViewState {
-    case loading, error, loaded
-}
-
-enum HomeAction {
-    case loadMoreItems
-    case initialLoad
-    case changeFilter(textFilter: String?, statusFilter: RMCharacter.Status?)
-}

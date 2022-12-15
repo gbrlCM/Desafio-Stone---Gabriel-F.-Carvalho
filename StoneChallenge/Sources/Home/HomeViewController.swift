@@ -73,13 +73,3 @@ class HomeViewController: UIViewController {
             .disposed(by: disposeBag)
     }
 }
-
-extension UICollectionView {
-    var didScrollToTheEnd: Bool {
-        let contentYOffset = contentOffset.y
-        let contentHeight = contentSize.height
-        let endTreshold: CGFloat = 70
-        
-        return contentYOffset > (contentHeight - frame.size.height - endTreshold) && !self.indexPathsForVisibleItems.isEmpty
-    }
-}

@@ -87,8 +87,3 @@ class CharacterCell: UICollectionViewCell {
         super.prepareForReuse()
     }
 }
-
-struct CharacterCellViewModel: Equatable {
-    let name: String
-    let imageUrl: URL
-}
