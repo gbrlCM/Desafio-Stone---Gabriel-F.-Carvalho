@@ -10,11 +10,10 @@ import RxSwift
 import RxRelay
 
 protocol HomePresenterProtocol {
-    var characters: Observable<[CharacterCellViewModel]> { get }
-    var viewState: Observable<ViewState> { get }
+    var viewModel: Observable<HomeViewModel> { get }
     
     func itemSelected(at index: Int)
-    func viewDidLoad()
+    func initialLoad()
     func loadMoreItems()
 }
 
@@ -27,21 +26,13 @@ final class HomePresenter: HomePresenterProtocol {
         self.interactor = interactor
     }
     
-    var characters: Observable<[CharacterCellViewModel]> {
+    var viewModel: Observable<HomeViewModel> {
         interactor
             .observable
-            .map(\.characters)
-            .distinctUntilChanged()
+            .map(HomeViewModel.init(from:))
     }
     
-    var viewState: Observable<ViewState> {
-        interactor
-            .observable
-            .map(\.viewState)
-            .distinctUntilChanged()
-    }
-    
-    func viewDidLoad() {
+    func initialLoad() {
         interactor.send(.initialLoad)
     }
     
@@ -53,4 +44,17 @@ final class HomePresenter: HomePresenterProtocol {
         interactor.send(.loadMoreItems)
     }
     
+}
+
+struct HomeViewModel: Equatable {
+    var cells: [CharacterCellViewModel]
+    var canLoadMore: Bool
+    var viewState: ViewState
+    
+    init(from state: HomeState) {
+        cells = state.characters.map(CharacterCellViewModel.init(character:))
+        #warning("Logica de limite de pagina")
+        canLoadMore = true
+        viewState = state.viewState
+    }
 }

@@ -7,7 +7,14 @@
 
 import Foundation
 
-struct CharacterCellViewModel: Equatable {
+struct CharacterCellViewModel: Identifiable, Equatable {
+    let id: Int
     let name: String
     let imageUrl: URL
+    
+    init(character: RMCharacter) {
+        self.id = character.id
+        self.name = character.name
+        self.imageUrl = character.image
+    }
 }

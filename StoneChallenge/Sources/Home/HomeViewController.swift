@@ -27,7 +27,8 @@ class HomeViewController: UIViewController {
         setupItems()
         setupItemsSelection()
         setupInfiniteScroll()
-        presenter.viewDidLoad()
+        setupPullUpToRefresh()
+        presenter.initialLoad()
         setupBarButtonItems()
     }
     
@@ -37,7 +38,9 @@ class HomeViewController: UIViewController {
     
     private func setupItems() {
         presenter
-            .characters
+            .viewModel
+            .map(\.cells)
+            .distinctUntilChanged()
             .observe(on: MainScheduler.instance)
             .bind(to: contentView.characterCollection.rx.items(cellIdentifier: CharacterCell.identifier, cellType: CharacterCell.self)) { index, item, cell in
                 cell.setup(with: item)
@@ -70,6 +73,17 @@ class HomeViewController: UIViewController {
             .filter { $0 }
             .observe(on: MainScheduler.instance)
             .subscribe(with: presenter, onNext: { presenter, _ in presenter.loadMoreItems() })
+            .disposed(by: disposeBag)
+    }
+    
+    private func setupPullUpToRefresh() {
+        contentView
+            .refreshControl
+            .rx
+            .controlEvent(.valueChanged)
+            .subscribe(with: presenter) {presenter, _ in
+                presenter.initialLoad()
+            }
             .disposed(by: disposeBag)
     }
 }

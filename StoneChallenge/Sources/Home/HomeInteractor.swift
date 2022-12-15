@@ -59,12 +59,9 @@ final class HomeInteractor: HomeInteractorProtocol, Reducer {
     private func loadMoreItemsObservable(previousState: HomeState) -> Observable<HomeState> {
         CurrentEnv.api
             .fetchCharactersList(previousState.nameFilter, previousState.currentPage, previousState.statusFilter)
-            .map { characters in
-                characters.map { CharacterCellViewModel(name: $0.name, imageUrl: $0.image) }
-            }
-            .map { cells in
+            .map { response in
                 var newState = previousState
-                newState.characters.append(contentsOf: cells)
+                newState.characters.append(contentsOf: response.results)
                 newState.currentPage += 1
                 newState.viewState = .loaded
                 return newState

@@ -8,8 +8,9 @@
 import Foundation
 
 struct HomeState {
-    var characters: [CharacterCellViewModel] = []
+    var characters: [RMCharacter] = []
     var currentPage: Int = 1
+    var pageLimit: Int = 42
     var viewState: ViewState = .loading
     var nameFilter: String?
     var statusFilter: RMCharacter.Status?

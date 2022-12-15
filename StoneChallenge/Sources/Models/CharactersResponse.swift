@@ -8,5 +8,11 @@
 import Foundation
 
 struct CharactersResponse: Codable {
+    var info: Info
     var results: [RMCharacter]
+    
+    struct Info: Codable {
+        let count: Int
+        let pages: Int
+    }
 }

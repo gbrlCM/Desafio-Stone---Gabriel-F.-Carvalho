@@ -18,10 +18,9 @@ final class APIService {
         self.session = session
     }
     
-    func fetchCharactersList(name: String? = nil, page: Int = 1, status: RMCharacter.Status? = nil) -> Observable<[RMCharacter]> {
+    func fetchCharactersList(name: String? = nil, page: Int = 1, status: RMCharacter.Status? = nil) -> Observable<CharactersResponse> {
         session.fetch(from: Route.character(page: page, textFilter: name, statusFilter: status).request)
             .decode(type: CharactersResponse.self, decoder: JSONDecoder())
-            .map(\.results)
     }
     
     func fetchSingleCharacter(id: String) -> Observable<RMCharacter> {
