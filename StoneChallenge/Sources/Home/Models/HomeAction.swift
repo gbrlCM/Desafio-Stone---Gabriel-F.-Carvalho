@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HomeAction {
+enum HomeAction: Equatable {
     case loadMoreItems
     case initialLoad
     case changeFilter(textFilter: String?, statusFilter: RMCharacter.Status?)

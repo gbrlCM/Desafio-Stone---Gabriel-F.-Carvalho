@@ -40,7 +40,11 @@ final class HomePresenter: HomePresenterProtocol {
     }
     
     func itemSelected(at index: Int) {
-        print(index)
+        guard let character = interactor.currentState.characters[safe: index] else {
+            return
+        }
+        
+        mainCoordinator?.navigateToCharacter(character)
     }
     
     func loadMoreItems() {

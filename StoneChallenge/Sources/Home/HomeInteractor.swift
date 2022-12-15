@@ -20,6 +20,10 @@ final class HomeInteractor: HomeInteractorProtocol, Reducer {
         store.asObservable()
     }
     
+    var currentState: HomeState {
+        store.value
+    }
+    
     init(initialState: HomeState) {
         self.store = BehaviorRelay(value: initialState)
         self.actionSubject = PublishSubject<HomeAction>()

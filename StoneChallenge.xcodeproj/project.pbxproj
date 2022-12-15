@@ -24,6 +24,10 @@
 		5BA4EE26294B375000507FE2 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE25294B375000507FE2 /* FilterViewController.swift */; };
 		5BA4EE2A294B37FC00507FE2 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE29294B37FC00507FE2 /* CoordinatorProtocol.swift */; };
 		5BA4EE2C294B384300507FE2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE2B294B384300507FE2 /* MainCoordinator.swift */; };
+		5BA4EE2F294B538E00507FE2 /* HomePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE2E294B538E00507FE2 /* HomePresenterTest.swift */; };
+		5BA4EE31294B539E00507FE2 /* HomeInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE30294B539E00507FE2 /* HomeInteractorMock.swift */; };
+		5BA4EE33294B584E00507FE2 /* MainCoordinatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE32294B584E00507FE2 /* MainCoordinatorMock.swift */; };
+		5BA4EE35294B59C800507FE2 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE34294B59C800507FE2 /* Array+Utils.swift */; };
 		5BD59C66294A3ACE00DDBE59 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD59C65294A3ACE00DDBE59 /* DataFetcher.swift */; };
 		5BEDBC002947AFF000513E3A /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBBFF2947AFF000513E3A /* AppEnvironment.swift */; };
 		5BEDBC032947B02F00513E3A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC022947B02F00513E3A /* APIService.swift */; };
@@ -84,6 +88,10 @@
 		5BA4EE25294B375000507FE2 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		5BA4EE29294B37FC00507FE2 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		5BA4EE2B294B384300507FE2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		5BA4EE2E294B538E00507FE2 /* HomePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTest.swift; sourceTree = "<group>"; };
+		5BA4EE30294B539E00507FE2 /* HomeInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorMock.swift; sourceTree = "<group>"; };
+		5BA4EE32294B584E00507FE2 /* MainCoordinatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorMock.swift; sourceTree = "<group>"; };
+		5BA4EE34294B59C800507FE2 /* Array+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
 		5BD59C65294A3ACE00DDBE59 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		5BEDBBE0294786B100513E3A /* StoneChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoneChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BEDBBFF2947AFF000513E3A /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
@@ -151,6 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				5BA4EDB5294A925800507FE2 /* DataFetcherMock.swift */,
+				5BA4EE30294B539E00507FE2 /* HomeInteractorMock.swift */,
+				5BA4EE32294B584E00507FE2 /* MainCoordinatorMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -186,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				5BA4EE1E294AB84D00507FE2 /* UICollectionView+Utils.swift */,
+				5BA4EE34294B59C800507FE2 /* Array+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -220,9 +231,18 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		5BA4EE2D294B537900507FE2 /* HomeTests */ = {
+			isa = PBXGroup;
+			children = (
+				5BA4EE2E294B538E00507FE2 /* HomePresenterTest.swift */,
+			);
+			path = HomeTests;
+			sourceTree = "<group>";
+		};
 		5BEDBBE1294786B100513E3A /* StoneChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				5BA4EE2D294B537900507FE2 /* HomeTests */,
 				5BA4EE11294AB70900507FE2 /* Extensions */,
 				5BA4EDB4294A924000507FE2 /* Mocks */,
 				5BA4EDB1294A921200507FE2 /* EnvironmentTests */,
@@ -547,6 +567,9 @@
 				5BA4EDC1294A94AF00507FE2 /* ImageFetcherTests.swift in Sources */,
 				5BA4EDB6294A925800507FE2 /* DataFetcherMock.swift in Sources */,
 				5BA4EE13294AB71700507FE2 /* Rx+Utils.swift in Sources */,
+				5BA4EE31294B539E00507FE2 /* HomeInteractorMock.swift in Sources */,
+				5BA4EE2F294B538E00507FE2 /* HomePresenterTest.swift in Sources */,
+				5BA4EE33294B584E00507FE2 /* MainCoordinatorMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +596,7 @@
 				C1D0693E2767DA8B00883CE8 /* SceneDelegate.swift in Sources */,
 				5B7E240129496ABE009D8EA4 /* ImageFetcher.swift in Sources */,
 				5BEDBC142948B95600513E3A /* Routes.swift in Sources */,
+				5BA4EE35294B59C800507FE2 /* Array+Utils.swift in Sources */,
 				5BA4EE26294B375000507FE2 /* FilterViewController.swift in Sources */,
 				5BA4EE2A294B37FC00507FE2 /* CoordinatorProtocol.swift in Sources */,
 				5BEDBC192948CB6900513E3A /* Reducer.swift in Sources */,

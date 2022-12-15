@@ -13,6 +13,7 @@ protocol Interactor {
     associatedtype Action
     
     var observable: Observable<State> { get }
+    var currentState: State { get }
     
     init(initialState: State)
     
