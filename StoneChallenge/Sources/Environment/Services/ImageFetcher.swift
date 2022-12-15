@@ -9,14 +9,15 @@ import RxSwift
 import UIKit
 
 final class ImageFetcher {
-    private let session: URLSession
+    private let session: DataFetcherProtocol
     private let cache: NSCache<NSURL, UIImage>
     
     static let shared: ImageFetcher = ImageFetcher()
     
-    init(session: URLSession = .shared, cache: NSCache<NSURL, UIImage> = .init()) {
+    init(session: DataFetcherProtocol = URLSession.shared, cache: NSCache<NSURL, UIImage> = .init()) {
         self.session = session
         self.cache = cache
+        configurateCache()
     }
     
     private func configurateCache() {
@@ -30,13 +31,22 @@ final class ImageFetcher {
         } else {
             let request = URLRequest(url: url)
             
-            return session.rx
-                .data(request: request)
-                .map(UIImage.init(data:))
+            return session
+                .fetch(from: request)
+                .map { data in
+                    guard let image = UIImage(data: data) else {
+                        throw ImageFetcherError.incorrectData
+                    }
+                    return image
+                }
                 .do(onNext: {[weak self] image in
                     guard let image else { return }
                     self?.cache.setObject(image, forKey: url as NSURL)
                 })
         }
     }
+}
+
+enum ImageFetcherError: Error {
+    case incorrectData
 }
