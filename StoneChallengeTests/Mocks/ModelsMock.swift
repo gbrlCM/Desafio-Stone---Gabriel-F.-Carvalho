@@ -22,7 +22,7 @@ extension CharactersResponse {
                     gender: "mock",
                     origin: .init(name: "mock"),
                     location: .init(name: "mock"),
-                    image: URL(fileURLWithPath: "mock"),
+                    image: URL(string: "https://mock.com/mock")!,
                     episode: [])
             ]
             )

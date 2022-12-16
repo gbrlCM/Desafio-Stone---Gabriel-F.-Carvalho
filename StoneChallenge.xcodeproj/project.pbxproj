@@ -41,6 +41,7 @@
 		5BA4EE4C294CAD7600507FE2 /* FilterInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE4B294CAD7600507FE2 /* FilterInteractorMock.swift */; };
 		5BA4EE4F294CAE9100507FE2 /* FilterPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE4E294CAE9100507FE2 /* FilterPresenterTests.swift */; };
 		5BA4EE51294CB4F700507FE2 /* FilterInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE50294CB4F700507FE2 /* FilterInteractorTests.swift */; };
+		5BA4EE53294CB9F200507FE2 /* APIServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4EE52294CB9F200507FE2 /* APIServiceTest.swift */; };
 		5BD59C66294A3ACE00DDBE59 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD59C65294A3ACE00DDBE59 /* DataFetcher.swift */; };
 		5BEDBC002947AFF000513E3A /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBBFF2947AFF000513E3A /* AppEnvironment.swift */; };
 		5BEDBC032947B02F00513E3A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC022947B02F00513E3A /* APIService.swift */; };
@@ -118,6 +119,7 @@
 		5BA4EE4B294CAD7600507FE2 /* FilterInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInteractorMock.swift; sourceTree = "<group>"; };
 		5BA4EE4E294CAE9100507FE2 /* FilterPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPresenterTests.swift; sourceTree = "<group>"; };
 		5BA4EE50294CB4F700507FE2 /* FilterInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInteractorTests.swift; sourceTree = "<group>"; };
+		5BA4EE52294CB9F200507FE2 /* APIServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTest.swift; sourceTree = "<group>"; };
 		5BD59C65294A3ACE00DDBE59 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		5BEDBBE0294786B100513E3A /* StoneChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoneChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BEDBBFF2947AFF000513E3A /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				5BA4EDC0294A94AF00507FE2 /* ImageFetcherTests.swift */,
+				5BA4EE52294CB9F200507FE2 /* APIServiceTest.swift */,
 			);
 			path = EnvironmentTests;
 			sourceTree = "<group>";
@@ -320,7 +323,6 @@
 				5BEDBC022947B02F00513E3A /* APIService.swift */,
 				5BEDBC132948B95600513E3A /* Routes.swift */,
 				5B7E240029496ABE009D8EA4 /* ImageFetcher.swift */,
-				5BD59C65294A3ACE00DDBE59 /* DataFetcher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -341,6 +343,7 @@
 			children = (
 				5BEDBC182948CB6900513E3A /* Reducer.swift */,
 				5BEDBC1A2948CB7300513E3A /* Interactor.swift */,
+				5BD59C65294A3ACE00DDBE59 /* DataFetcher.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				5BA4EE4F294CAE9100507FE2 /* FilterPresenterTests.swift in Sources */,
 				5BA4EE31294B539E00507FE2 /* HomeInteractorMock.swift in Sources */,
 				5BA4EE2F294B538E00507FE2 /* HomePresenterTest.swift in Sources */,
+				5BA4EE53294CB9F200507FE2 /* APIServiceTest.swift in Sources */,
 				5BA4EE4C294CAD7600507FE2 /* FilterInteractorMock.swift in Sources */,
 				5BA4EE33294B584E00507FE2 /* MainCoordinatorMock.swift in Sources */,
 				5BA4EE3B294B64C800507FE2 /* ModelsMock.swift in Sources */,
