@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import RxRelay
 import Foundation
 
 protocol FilterPresenterProtocol: AnyObject {
@@ -24,6 +25,7 @@ final class FilterPresenter: FilterPresenterProtocol {
     
     private let interactor: any FilterInteractorProtocol
     weak var coordinator: MainCoordinatorProtocol?
+    weak var resultPublish: PublishSubject<FilterState>?
     
     init(interactor: some FilterInteractorProtocol) {
         self.interactor = interactor
@@ -39,6 +41,7 @@ final class FilterPresenter: FilterPresenterProtocol {
     
     func searchButtonTapped() {
         print(interactor.currentState)
+        resultPublish?.on(.next(interactor.currentState))
         coordinator?.dismiss()
     }
 }

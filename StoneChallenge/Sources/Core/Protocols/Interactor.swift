@@ -8,7 +8,7 @@
 import RxSwift
 import RxRelay
 
-protocol Interactor {
+protocol Interactor: AnyObject {
     associatedtype State
     associatedtype Action
     

@@ -6,16 +6,22 @@
 //
 
 @testable import StoneChallenge
+import RxSwift
 
 final class MainCoordinatorMock: MainCoordinatorProtocol {
     var lastCharacterNavigated: RMCharacter?
     var displayFilterWasCalled: Bool = false
+    var didCallDismiss: Bool = false
     
     func navigateToCharacter(_ character: RMCharacter) {
         lastCharacterNavigated = character
     }
     
-    func displayFilter() {
+    func displayFilter(resultSubject: PublishSubject<FilterState>) {
         displayFilterWasCalled = true
+    }
+    
+    func dismiss() {
+        didCallDismiss = true
     }
 }

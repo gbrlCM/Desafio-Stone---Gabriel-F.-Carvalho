@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol MainCoordinatorProtocol: AnyObject {
     
     func navigateToCharacter(_ character: RMCharacter)
-    func displayFilter()
+    func displayFilter(resultSubject: PublishSubject<FilterState>)
     func dismiss()
 }
 
@@ -34,10 +35,11 @@ final class MainCoordinator: MainCoordinatorProtocol, CoordinatorProcotol {
         
     }
     
-    func displayFilter() {
+    func displayFilter(resultSubject: PublishSubject<FilterState>) {
         let interactor = FilterInteractor(initialState: FilterState())
         let presenter = FilterPresenter(interactor: interactor)
         presenter.coordinator = self
+        presenter.resultPublish = resultSubject
         let filterView = FilterViewController(presenter: presenter)
         navigationView.present(UINavigationController(rootViewController: filterView), animated: true)
     }
