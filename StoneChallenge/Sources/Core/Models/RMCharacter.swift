@@ -27,7 +27,7 @@ struct RMCharacter: Codable, Equatable {
         let name: String
     }
     
-    enum Status: String, Codable, Equatable {
+    enum Status: String, Codable, Equatable, CaseIterable {
         case alive = "Alive"
         case dead = "Dead"
         case unknown = "unknown"

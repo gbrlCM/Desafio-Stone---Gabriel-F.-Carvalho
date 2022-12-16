@@ -5,9 +5,9 @@ class HomeViewController: UIViewController {
     
     private let contentView: HomeView = HomeView()
     private var disposeBag = DisposeBag()
-    private let presenter: HomePresenter
+    private let presenter: HomePresenterProtocol
     
-    init(presenter: HomePresenter = HomePresenter(interactor: HomeInteractor(initialState: HomeState()))) {
+    init(presenter: HomePresenterProtocol = HomePresenter(interactor: HomeInteractor(initialState: HomeState()))) {
         self.disposeBag = DisposeBag()
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -60,8 +60,8 @@ class HomeViewController: UIViewController {
             .rx
             .itemSelected
             .map(\.row)
-            .bind(with: presenter) { presenter, index in
-                presenter.itemSelected(at: index)
+            .bind {[weak presenter] index in
+                presenter?.itemSelected(at: index)
             }
             .disposed(by: disposeBag)
     }
@@ -78,7 +78,7 @@ class HomeViewController: UIViewController {
             .distinctUntilChanged()
             .filter { $0 }
             .observe(on: MainScheduler.instance)
-            .subscribe(with: presenter, onNext: { presenter, _ in presenter.loadMoreItems() })
+            .subscribe { [weak presenter] _ in presenter?.loadMoreItems() }
             .disposed(by: disposeBag)
     }
     
@@ -87,8 +87,8 @@ class HomeViewController: UIViewController {
             .refreshControl
             .rx
             .controlEvent(.valueChanged)
-            .subscribe(with: presenter) {presenter, _ in
-                presenter.initialLoad()
+            .subscribe{[weak presenter] _ in
+                presenter?.initialLoad()
             }
             .disposed(by: disposeBag)
         

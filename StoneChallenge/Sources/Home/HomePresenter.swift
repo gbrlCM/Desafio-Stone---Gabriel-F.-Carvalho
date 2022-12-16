@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxRelay
 
-protocol HomePresenterProtocol {
+protocol HomePresenterProtocol: AnyObject {
     var viewModel: Observable<HomeViewModel> { get }
     
     func itemSelected(at index: Int)
