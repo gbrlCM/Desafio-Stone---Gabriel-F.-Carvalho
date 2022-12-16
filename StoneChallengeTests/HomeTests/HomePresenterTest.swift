@@ -42,16 +42,26 @@ final class HomePresenterTest: XCTestCase {
         XCTAssertEqual(interactorMock.actionsSended, [.initialLoad])
     }
     
-    func testLoadMoreItems() {
+    func testLoadMoreItemsWhenItIsPossible() {
+        interactorMock.stateRelay.accept(HomeState(currentPage: 1, pageLimit: 10))
         sut.loadMoreItems()
         
         XCTAssertEqual(interactorMock.actionsSended, [.loadMoreItems])
     }
     
+    func testLoadMoreItemsWhenItCanNot() {
+        interactorMock.stateRelay.accept(HomeState(currentPage: 1, pageLimit: 1))
+        sut.loadMoreItems()
+        
+        XCTAssertEqual(interactorMock.actionsSended, [])
+    }
+    
     func testDisplayFilter() {
+        coordinatorMock.mockFilterState = FilterState(status: .dead, text: "mock filter")
         sut.displayFilter()
         
         XCTAssertTrue(coordinatorMock.displayFilterWasCalled)
+        XCTAssertEqual(interactorMock.actionsSended, [.changeFilter(textFilter: "mock filter", statusFilter: .dead)])
     }
     
     func testItemSelected() {

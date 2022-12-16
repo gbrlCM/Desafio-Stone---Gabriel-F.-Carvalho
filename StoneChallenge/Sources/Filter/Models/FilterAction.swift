@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FilterAction {
+enum FilterAction: Equatable {
     case updateText(_ content: String?)
     case changeStatus(_ newValue: RMCharacter.Status?)
 }

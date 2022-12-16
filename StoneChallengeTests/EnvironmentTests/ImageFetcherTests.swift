@@ -40,13 +40,13 @@ final class ImageFetcherTests: XCTestCase {
     }
     
     func testFetchImageFromSession() {
-        var url = URL(string: "https://www.fetchtest.com/sfsymbol")!
-        var image = UIImage(systemName: "chevron.down")!
+        let url = URL(string: "https://www.fetchtest.com/sfsymbol")!
+        let image = UIImage(systemName: "chevron.down")!
         mockSession.mockedData[url] = image.pngData()!
         
-        var expectation = expectation(description: #function)
+        let expectation = expectation(description: #function)
         
-        var testableObserver = scheduler
+        let testableObserver = scheduler
             .createObserver(Optional<UIImage>.self)
         
         sut
@@ -62,12 +62,12 @@ final class ImageFetcherTests: XCTestCase {
     }
     
     func testFetchImageFromSessionWithIncorrectData() {
-        var url = URL(string: "https://www.fetchtest.com/error")!
+        let url = URL(string: "https://www.fetchtest.com/error")!
         mockSession.mockedData[url] = Data()
         
-        var expectation = expectation(description: #function)
+        let expectation = expectation(description: #function)
         
-        var observer = scheduler
+        let observer = scheduler
             .createObserver(Optional<UIImage>.self)
         
         sut
@@ -84,12 +84,12 @@ final class ImageFetcherTests: XCTestCase {
     }
     
     func testFetchImageFromCache() {
-        var url = URL(string: "https://www.fetchtest.com/sfsymbol")!
+        let url = URL(string: "https://www.fetchtest.com/sfsymbol")!
         cache.setObject(UIImage(systemName: "chevron.down")!, forKey: url as NSURL)
         
-        var expectation = expectation(description: #function)
+        let expectation = expectation(description: #function)
         
-        var observer = scheduler
+        let observer = scheduler
             .createObserver(Optional<UIImage>.self)
         
         sut

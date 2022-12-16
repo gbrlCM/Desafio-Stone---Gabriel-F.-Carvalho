@@ -12,6 +12,7 @@ final class MainCoordinatorMock: MainCoordinatorProtocol {
     var lastCharacterNavigated: RMCharacter?
     var displayFilterWasCalled: Bool = false
     var didCallDismiss: Bool = false
+    var mockFilterState: FilterState?
     
     func navigateToCharacter(_ character: RMCharacter) {
         lastCharacterNavigated = character
@@ -19,6 +20,7 @@ final class MainCoordinatorMock: MainCoordinatorProtocol {
     
     func displayFilter(resultSubject: PublishSubject<FilterState>) {
         displayFilterWasCalled = true
+        resultSubject.on(.next(mockFilterState!))
     }
     
     func dismiss() {

@@ -40,7 +40,6 @@ final class FilterPresenter: FilterPresenterProtocol {
     }
     
     func searchButtonTapped() {
-        print(interactor.currentState)
         resultPublish?.on(.next(interactor.currentState))
         coordinator?.dismiss()
     }
