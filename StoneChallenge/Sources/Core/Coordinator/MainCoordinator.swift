@@ -32,7 +32,8 @@ final class MainCoordinator: MainCoordinatorProtocol, CoordinatorProcotol {
         navigationView.pushViewController(homeView, animated: false)
     }
     func navigateToCharacter(_ character: RMCharacter) {
-        
+        let detailView = DetailViewController(character: character)
+        navigationView.pushViewController(detailView, animated: true)
     }
     
     func displayFilter(resultSubject: PublishSubject<FilterState>) {

@@ -54,6 +54,8 @@
 		5BEDBC162948CAC200513E3A /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC152948CAC200513E3A /* HomeInteractor.swift */; };
 		5BEDBC192948CB6900513E3A /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC182948CB6900513E3A /* Reducer.swift */; };
 		5BEDBC1B2948CB7300513E3A /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC1A2948CB7300513E3A /* Interactor.swift */; };
+		5BF6EC36294EB2AF00CBF206 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6EC35294EB2AF00CBF206 /* DetailViewController.swift */; };
+		5BF6EC38294EB2BE00CBF206 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6EC37294EB2BE00CBF206 /* DetailView.swift */; };
 		C1D0693C2767DA8B00883CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0693B2767DA8B00883CE8 /* AppDelegate.swift */; };
 		C1D0693E2767DA8B00883CE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0693D2767DA8B00883CE8 /* SceneDelegate.swift */; };
 		C1D069452767DA8C00883CE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1D069442767DA8C00883CE8 /* Assets.xcassets */; };
@@ -133,6 +135,8 @@
 		5BEDBC152948CAC200513E3A /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		5BEDBC182948CB6900513E3A /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
 		5BEDBC1A2948CB7300513E3A /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		5BF6EC35294EB2AF00CBF206 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		5BF6EC37294EB2BE00CBF206 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		9E0C28B7BA49AA008474F949 /* Pods-StoneChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoneChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-StoneChallengeTests/Pods-StoneChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1D069382767DA8B00883CE8 /* StoneChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoneChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D0693B2767DA8B00883CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -348,6 +352,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		5BF6EC34294CD05D00CBF206 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				5BF6EC35294EB2AF00CBF206 /* DetailViewController.swift */,
+				5BF6EC37294EB2BE00CBF206 /* DetailView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		C1D0692F2767DA8B00883CE8 = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +412,7 @@
 		C1D069512767DBCE00883CE8 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				5BF6EC34294CD05D00CBF206 /* Detail */,
 				5BA4EE27294B37BF00507FE2 /* Core */,
 				5B7E2402294A0D8A009D8EA4 /* Filter */,
 				C1D0694F2767DBAE00883CE8 /* Application */,
@@ -667,8 +681,10 @@
 				5B7E240129496ABE009D8EA4 /* ImageFetcher.swift in Sources */,
 				5BA4EE4A294C951C00507FE2 /* HomeViewModel.swift in Sources */,
 				5BEDBC142948B95600513E3A /* Routes.swift in Sources */,
+				5BF6EC38294EB2BE00CBF206 /* DetailView.swift in Sources */,
 				5BA4EE35294B59C800507FE2 /* Array+Utils.swift in Sources */,
 				5BA4EE26294B375000507FE2 /* FilterViewController.swift in Sources */,
+				5BF6EC36294EB2AF00CBF206 /* DetailViewController.swift in Sources */,
 				5BA4EE2A294B37FC00507FE2 /* CoordinatorProtocol.swift in Sources */,
 				5BEDBC192948CB6900513E3A /* Reducer.swift in Sources */,
 				5B7E2404294A0DAC009D8EA4 /* FilterView.swift in Sources */,
