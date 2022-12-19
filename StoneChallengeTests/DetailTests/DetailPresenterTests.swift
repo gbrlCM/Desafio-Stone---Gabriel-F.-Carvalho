@@ -19,7 +19,7 @@ final class DetailPresenterTests: XCTestCase {
     var disposeBag: DisposeBag!
     
     override func setUp() {
-        interactorMock = DetailInteractorMock(initialState: DetailViewState(character: .mock))
+        interactorMock = DetailInteractorMock(initialState: DetailState(character: .mock))
         sut = DetailPresenter(interactor: interactorMock)
         scheduler = TestScheduler(initialClock: 0)
         disposeBag = DisposeBag()
@@ -38,7 +38,7 @@ final class DetailPresenterTests: XCTestCase {
     }
     
     func testViewModelMapping() {
-        let state = DetailViewState(character: .mock, episodes: RMCharacter.mock.episode.map {RMEpisode(id: 1, name: $0.absoluteString, episode: $0.absoluteString, airDate: $0.absoluteString) })
+        let state = DetailState(character: .mock, episodes: RMCharacter.mock.episode.map {RMEpisode(id: 1, name: $0.absoluteString, episode: $0.absoluteString, airDate: $0.absoluteString) })
         interactorMock.stateRelay.accept(state)
         let expectedResult = DetailViewModel(currentState: state)
         let observer = scheduler.createObserver(DetailViewModel.self)

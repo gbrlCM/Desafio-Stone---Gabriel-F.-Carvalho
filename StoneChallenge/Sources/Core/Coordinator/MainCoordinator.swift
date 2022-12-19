@@ -32,7 +32,7 @@ final class MainCoordinator: MainCoordinatorProtocol, CoordinatorProcotol {
         navigationView.pushViewController(homeView, animated: false)
     }
     func navigateToCharacter(_ character: RMCharacter) {
-        let interactor = DetailInteractor(initialState: DetailViewState(character: character))
+        let interactor = DetailInteractor(initialState: DetailState(character: character))
         let presenter = DetailPresenter(interactor: interactor)
         let detailView = DetailViewController(presenter: presenter)
         navigationView.pushViewController(detailView, animated: true)

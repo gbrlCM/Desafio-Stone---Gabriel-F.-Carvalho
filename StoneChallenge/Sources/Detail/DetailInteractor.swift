@@ -9,18 +9,18 @@ import RxSwift
 import RxRelay
 import Foundation
 
-protocol DetailInteractorProtocol: Interactor where State == DetailViewState, Action == DetailAction {}
+protocol DetailInteractorProtocol: Interactor where State == DetailState, Action == DetailAction {}
 
 final class DetailInteractor: DetailInteractorProtocol, Reducer {
-    var store: BehaviorRelay<DetailViewState>
+    var store: BehaviorRelay<DetailState>
     var actionSubject: PublishSubject<DetailAction>
     var disposeBag: DisposeBag
     
     
-    var observable: Observable<DetailViewState> { store.asObservable() }
-    var currentState: DetailViewState { store.value }
+    var observable: Observable<DetailState> { store.asObservable() }
+    var currentState: DetailState { store.value }
     
-    init(initialState: DetailViewState) {
+    init(initialState: DetailState) {
         self.store = BehaviorRelay(value: initialState)
         self.actionSubject = PublishSubject()
         self.disposeBag = DisposeBag()
@@ -31,7 +31,7 @@ final class DetailInteractor: DetailInteractorProtocol, Reducer {
         actionSubject.on(.next(action))
     }
     
-    func reduce(action: DetailAction, previousState: DetailViewState) -> Observable<DetailViewState> {
+    func reduce(action: DetailAction, previousState: DetailState) -> Observable<DetailState> {
         switch action {
         case .initialLoad:
             let episodeURL = previousState.character.episode
@@ -40,7 +40,7 @@ final class DetailInteractor: DetailInteractorProtocol, Reducer {
             return Observable
                 .combineLatest(CurrentEnv.image.fetch(imageURL), CurrentEnv.api.fetchEpisodes(episodeURL))
                 .map { image, episodes in
-                    DetailViewState(character: previousState.character, episodes: episodes, image: image)
+                    DetailState(character: previousState.character, episodes: episodes, image: image)
                 }
         }
     }

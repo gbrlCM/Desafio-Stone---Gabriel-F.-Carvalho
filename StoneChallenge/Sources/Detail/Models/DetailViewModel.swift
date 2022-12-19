@@ -12,7 +12,7 @@ struct DetailViewModel: Equatable {
     let header: HeaderViewModel
     let episodeCells: [EpisodeCellViewModel]
     
-    init(currentState: DetailViewState) {
+    init(currentState: DetailState) {
         self.title = currentState.character.name
         self.header = HeaderViewModel(
             image: currentState.image,

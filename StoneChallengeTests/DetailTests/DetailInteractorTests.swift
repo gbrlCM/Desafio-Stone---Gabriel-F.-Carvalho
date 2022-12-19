@@ -18,7 +18,7 @@ final class DetailInteractorTests: XCTestCase {
     var disposeBag: DisposeBag!
     
     override func setUp() {
-        sut = DetailInteractor(initialState: DetailViewState(character: .mock))
+        sut = DetailInteractor(initialState: DetailState(character: .mock))
         scheduler = TestScheduler(initialClock: 0)
         disposeBag = DisposeBag()
         CurrentEnv = .mock
@@ -32,12 +32,12 @@ final class DetailInteractorTests: XCTestCase {
     
     func testSendInitialLoadAction() {
         let characterMock = RMCharacter.mock
-        let expectedState = DetailViewState(
+        let expectedState = DetailState(
             character: characterMock,
             episodes: RMEpisode.mock(for: characterMock.episode),
             image: ImageReferences.mock
         )
-        let observer = scheduler.createObserver(DetailViewState.self)
+        let observer = scheduler.createObserver(DetailState.self)
         
         let expectation = expectation(description: #function)
         
@@ -55,8 +55,8 @@ final class DetailInteractorTests: XCTestCase {
     }
     
     func testCurrentState() {
-        sut.store.accept(DetailViewState(character: .mock))
-        XCTAssertEqual(sut.currentState, DetailViewState(character: .mock))
+        sut.store.accept(DetailState(character: .mock))
+        XCTAssertEqual(sut.currentState, DetailState(character: .mock))
     }
 
 }

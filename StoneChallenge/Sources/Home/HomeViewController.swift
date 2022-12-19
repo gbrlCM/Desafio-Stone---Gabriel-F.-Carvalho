@@ -131,12 +131,3 @@ class HomeViewController: UIViewController {
         presenter.displayFilter()
     }
 }
-
-extension UINavigationBar {
-    public func applyDefaultStyle() {
-        prefersLargeTitles = true
-        largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "AccentColor")]
-        titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "AccentColor")]
-        
-    }
-}
