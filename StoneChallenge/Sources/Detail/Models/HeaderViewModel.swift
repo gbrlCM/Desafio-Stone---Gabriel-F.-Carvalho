@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct HeaderViewModel {
+struct HeaderViewModel: Equatable {
     let image: UIImage?
     let status: RMCharacter.Status
     let gender: String

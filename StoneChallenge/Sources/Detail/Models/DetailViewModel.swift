@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DetailViewModel {
+struct DetailViewModel: Equatable {
     let title: String
     let header: HeaderViewModel
     let episodeCells: [EpisodeCellViewModel]

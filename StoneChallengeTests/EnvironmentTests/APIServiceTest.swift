@@ -48,10 +48,24 @@ final class APIServiceTest: XCTestCase {
         
         XCTAssertEqual(observer.nextEvents, [expectedResult])
     }
+    
+    func testFetchCharacterEpisodes() {
+        let urls: [URL] = [URL(string: "https://www.mock.com/ep/1")!, URL(string: "https://www.mock.com/ep/2")!, URL(string: "https://www.mock.com/ep/3")!]
+        let episodes = urls.map { RMEpisode(id: 0, name: $0.absoluteString, episode: $0.absoluteString, airDate: $0.absoluteString) }
+        zip(urls, episodes).forEach { url, episode in fetcherMock.mockedData[url] = try! JSONEncoder().encode(episode) }
+        
+        let observer = scheduler.createObserver([RMEpisode].self)
+        
+        let expectation = expectation(description: #function)
+        
+        sut.fetchEpisodes(urls)
+            .fulfillOnNext(expectation)
+            .subscribe(observer)
+            .disposed(by: disposeBag)
+        
+        wait(for: [expectation], timeout: 1)
+        
+        XCTAssertEqual(observer.nextEvents.first!, episodes)
+    }
 
 }
-
-/*
- "[StoneChallenge.CharactersResponse(info: StoneChallenge.CharactersResponse.Info(count: 1, pages: 10), results: [StoneChallenge.RMCharacter(id: 1, name: "mock ", status: StoneChallenge.RMCharacter.Status.alive, species: "mock", type: "mock", gender: "mock", origin: StoneChallenge.RMCharacter.Origin(name: "mock"), location: StoneChallenge.RMCharacter.Location(name: "mock"), image: file:///mock, episode: [])])]") is not equal to
- ("[StoneChallenge.CharactersResponse(info: StoneChallenge.CharactersResponse.Info(count: 1, pages: 10), results: [StoneChallenge.RMCharacter(id: 1, name: "mock ", status: StoneChallenge.RMCharacter.Status.alive, species: "mock", type: "mock", gender: "mock", origin: StoneChallenge.RMCharacter.Origin(name: "mock"), location: StoneChallenge.RMCharacter.Location(name: "mock"), image: mock -- file:///, episode: [])])]"
- */

@@ -30,6 +30,12 @@ extension API {
                             status: status
                         )
                     )
+            },
+            fetchEpisodes: { urls in
+                Observable<[RMEpisode]>
+                    .just(
+                        RMEpisode.mock(for: urls)
+                    )
             }
         )
     }
@@ -38,7 +44,7 @@ extension API {
 extension ImageHandler {
     static var mock: ImageHandler {
         ImageHandler(
-            fetch: { url in Observable<UIImage?>.just(UIImage(systemName: "chevron.down")) }
+            fetch: { url in Observable<UIImage?>.just(ImageReferences.mock) }
         )
     }
 }

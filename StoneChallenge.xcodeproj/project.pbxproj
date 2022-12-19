@@ -66,6 +66,9 @@
 		5BF6EC4A2950924F00CBF206 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6EC492950924F00CBF206 /* DetailViewModel.swift */; };
 		5BF6EC4C2950925B00CBF206 /* HeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6EC4B2950925B00CBF206 /* HeaderViewModel.swift */; };
 		5BF6EC4E295092A500CBF206 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6EC4D295092A500CBF206 /* DetailInteractor.swift */; };
+		5BF6EC53295094FC00CBF206 /* DetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6EC52295094FC00CBF206 /* DetailPresenterTests.swift */; };
+		5BF6EC55295095A700CBF206 /* DetailInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6EC54295095A700CBF206 /* DetailInteractorMock.swift */; };
+		5BF6EC572950990C00CBF206 /* DetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6EC562950990C00CBF206 /* DetailInteractorTests.swift */; };
 		C1D0693C2767DA8B00883CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0693B2767DA8B00883CE8 /* AppDelegate.swift */; };
 		C1D0693E2767DA8B00883CE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0693D2767DA8B00883CE8 /* SceneDelegate.swift */; };
 		C1D069452767DA8C00883CE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1D069442767DA8C00883CE8 /* Assets.xcassets */; };
@@ -157,6 +160,9 @@
 		5BF6EC492950924F00CBF206 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		5BF6EC4B2950925B00CBF206 /* HeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModel.swift; sourceTree = "<group>"; };
 		5BF6EC4D295092A500CBF206 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		5BF6EC52295094FC00CBF206 /* DetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenterTests.swift; sourceTree = "<group>"; };
+		5BF6EC54295095A700CBF206 /* DetailInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractorMock.swift; sourceTree = "<group>"; };
+		5BF6EC562950990C00CBF206 /* DetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractorTests.swift; sourceTree = "<group>"; };
 		9E0C28B7BA49AA008474F949 /* Pods-StoneChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoneChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-StoneChallengeTests/Pods-StoneChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1D069382767DA8B00883CE8 /* StoneChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoneChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D0693B2767DA8B00883CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -220,6 +226,7 @@
 				5BA4EE36294B5FE100507FE2 /* EnvironmentMock.swift */,
 				5BA4EE3A294B64C800507FE2 /* ModelsMock.swift */,
 				5BA4EE4B294CAD7600507FE2 /* FilterInteractorMock.swift */,
+				5BF6EC54295095A700CBF206 /* DetailInteractorMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -323,6 +330,7 @@
 		5BEDBBE1294786B100513E3A /* StoneChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				5BF6EC4F295094D900CBF206 /* DetailTests */,
 				5BA4EE4D294CAE7300507FE2 /* FilterTests */,
 				5BA4EE2D294B537900507FE2 /* HomeTests */,
 				5BA4EE11294AB70900507FE2 /* Extensions */,
@@ -405,6 +413,15 @@
 				5BF6EC4B2950925B00CBF206 /* HeaderViewModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5BF6EC4F295094D900CBF206 /* DetailTests */ = {
+			isa = PBXGroup;
+			children = (
+				5BF6EC52295094FC00CBF206 /* DetailPresenterTests.swift */,
+				5BF6EC562950990C00CBF206 /* DetailInteractorTests.swift */,
+			);
+			path = DetailTests;
 			sourceTree = "<group>";
 		};
 		C1D0692F2767DA8B00883CE8 = {
@@ -686,11 +703,14 @@
 				5BA4EDB6294A925800507FE2 /* DataFetcherMock.swift in Sources */,
 				5BA4EE13294AB71700507FE2 /* Rx+Utils.swift in Sources */,
 				5BA4EE39294B625800507FE2 /* HomeInteractorTests.swift in Sources */,
+				5BF6EC55295095A700CBF206 /* DetailInteractorMock.swift in Sources */,
 				5BA4EE4F294CAE9100507FE2 /* FilterPresenterTests.swift in Sources */,
 				5BA4EE31294B539E00507FE2 /* HomeInteractorMock.swift in Sources */,
+				5BF6EC572950990C00CBF206 /* DetailInteractorTests.swift in Sources */,
 				5BA4EE2F294B538E00507FE2 /* HomePresenterTest.swift in Sources */,
 				5BA4EE53294CB9F200507FE2 /* APIServiceTest.swift in Sources */,
 				5BA4EE4C294CAD7600507FE2 /* FilterInteractorMock.swift in Sources */,
+				5BF6EC53295094FC00CBF206 /* DetailPresenterTests.swift in Sources */,
 				5BA4EE33294B584E00507FE2 /* MainCoordinatorMock.swift in Sources */,
 				5BA4EE3B294B64C800507FE2 /* ModelsMock.swift in Sources */,
 				5BA4EE51294CB4F700507FE2 /* FilterInteractorTests.swift in Sources */,

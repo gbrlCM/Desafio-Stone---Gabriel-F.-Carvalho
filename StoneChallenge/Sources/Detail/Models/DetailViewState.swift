@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct DetailViewState {
+struct DetailViewState: Equatable {
     let character: RMCharacter
     let episodes: [RMEpisode]
     let image: UIImage?
