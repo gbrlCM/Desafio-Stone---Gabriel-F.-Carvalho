@@ -105,10 +105,10 @@ final class DetailViewHeader: UIView {
         layer.masksToBounds = true
     }
     
-    func setupContent(status: RMCharacter.Status, species: String, gender: String) {
-        statusContent.text = status.rawValue
-        speciesContent.text = species
-        genderContent.text = gender
+    func setup(with viewModel: HeaderViewModel) {
+        statusContent.text = viewModel.status.rawValue
+        speciesContent.text = viewModel.species
+        genderContent.text = viewModel.gender
     }
     
     private func makeTitleLabel(_ content: String, textAlignment: NSTextAlignment = .center) -> UILabel {

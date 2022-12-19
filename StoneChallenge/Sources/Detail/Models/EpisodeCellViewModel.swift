@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EpisodeCellViewModel {
+struct EpisodeCellViewModel: Equatable {
     let title: String
     let subtitle: String
     

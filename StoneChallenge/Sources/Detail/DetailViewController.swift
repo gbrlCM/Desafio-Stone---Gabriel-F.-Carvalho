@@ -11,12 +11,12 @@ import RxSwift
 class DetailViewController: UIViewController {
     
     private let contentView: DetailView
+    private let presenter: DetailPresenterProcotol
     private var disposeBag: DisposeBag
-    let character: RMCharacter
     
-    init(character: RMCharacter) {
-        self.character = character
+    init(presenter: DetailPresenterProcotol) {
         self.contentView = DetailView()
+        self.presenter = presenter
         self.disposeBag = DisposeBag()
         super.init(nibName: nil, bundle: nil)
     }
@@ -32,22 +32,52 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = character.name
-        contentView.header.setupContent(status: character.status, species: character.species, gender: character.gender)
+        bindNavigationTitle()
+        bindEpisodeTable()
+        bindHeader()
+        presenter.viewDidLoad()
         
-        CurrentEnv
-            .image
-            .fetch(character.image)
-            .bind(to: contentView.header.imageBinder)
+
+    }
+    
+    private func bindNavigationTitle() {
+        presenter
+            .viewModel
+            .map(\.title)
+            .observe(on: MainScheduler.instance)
+            .bind(with: self) { viewController, title in
+                viewController.navigationItem.title = title
+            }
             .disposed(by: disposeBag)
-        
-        CurrentEnv
-            .api
-            .fetchEpisodes(character.episode)
-            .map { episodes in episodes.map(EpisodeCellViewModel.init(episode:))}
+    }
+    
+    private func bindEpisodeTable() {
+        presenter
+            .viewModel
+            .map(\.episodeCells)
+            .distinctUntilChanged()
+            .observe(on: MainScheduler.instance)
             .bind(to: contentView.episodesTable.rx.items(cellIdentifier: EpisodeCell.identifier, cellType: EpisodeCell.self)) { index, item, cell in
                 cell.setup(with: item)
             }
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindHeader() {
+        presenter
+            .viewModel
+            .map(\.header)
+            .observe(on: MainScheduler.instance)
+            .bind(with: contentView) { view, viewModel in
+                view.header.setup(with: viewModel)
+            }
+            .disposed(by: disposeBag)
+        
+        presenter
+            .viewModel
+            .map(\.header.image)
+            .observe(on: MainScheduler.instance)
+            .bind(to: contentView.header.imageBinder)
             .disposed(by: disposeBag)
     }
 }
