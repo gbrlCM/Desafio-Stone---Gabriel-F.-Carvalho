@@ -56,6 +56,10 @@
 		5BEDBC1B2948CB7300513E3A /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDBC1A2948CB7300513E3A /* Interactor.swift */; };
 		5BF6EC36294EB2AF00CBF206 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6EC35294EB2AF00CBF206 /* DetailViewController.swift */; };
 		5BF6EC38294EB2BE00CBF206 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6EC37294EB2BE00CBF206 /* DetailView.swift */; };
+		5BF6EC3A294FEB3800CBF206 /* RMEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6EC39294FEB3800CBF206 /* RMEpisode.swift */; };
+		5BF6EC3D294FED4300CBF206 /* DetailViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6EC3C294FED4300CBF206 /* DetailViewHeader.swift */; };
+		5BF6EC3F29508A6B00CBF206 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6EC3E29508A6B00CBF206 /* EpisodeCell.swift */; };
+		5BF6EC4229508AB500CBF206 /* EpisodeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6EC4129508AB500CBF206 /* EpisodeCellViewModel.swift */; };
 		C1D0693C2767DA8B00883CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0693B2767DA8B00883CE8 /* AppDelegate.swift */; };
 		C1D0693E2767DA8B00883CE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0693D2767DA8B00883CE8 /* SceneDelegate.swift */; };
 		C1D069452767DA8C00883CE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1D069442767DA8C00883CE8 /* Assets.xcassets */; };
@@ -137,6 +141,10 @@
 		5BEDBC1A2948CB7300513E3A /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		5BF6EC35294EB2AF00CBF206 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5BF6EC37294EB2BE00CBF206 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		5BF6EC39294FEB3800CBF206 /* RMEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMEpisode.swift; sourceTree = "<group>"; };
+		5BF6EC3C294FED4300CBF206 /* DetailViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewHeader.swift; sourceTree = "<group>"; };
+		5BF6EC3E29508A6B00CBF206 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
+		5BF6EC4129508AB500CBF206 /* EpisodeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCellViewModel.swift; sourceTree = "<group>"; };
 		9E0C28B7BA49AA008474F949 /* Pods-StoneChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoneChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-StoneChallengeTests/Pods-StoneChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1D069382767DA8B00883CE8 /* StoneChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoneChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D0693B2767DA8B00883CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -338,6 +346,7 @@
 				5BEDBC112948B80200513E3A /* Endpoint.swift */,
 				5BA4EE17294AB7F400507FE2 /* ViewState.swift */,
 				5BA4EE20294AB8B900507FE2 /* CharactersResponse.swift */,
+				5BF6EC39294FEB3800CBF206 /* RMEpisode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -355,10 +364,29 @@
 		5BF6EC34294CD05D00CBF206 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				5BF6EC4029508AA500CBF206 /* Models */,
+				5BF6EC3B294FED3300CBF206 /* Components */,
 				5BF6EC35294EB2AF00CBF206 /* DetailViewController.swift */,
 				5BF6EC37294EB2BE00CBF206 /* DetailView.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		5BF6EC3B294FED3300CBF206 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5BF6EC3C294FED4300CBF206 /* DetailViewHeader.swift */,
+				5BF6EC3E29508A6B00CBF206 /* EpisodeCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5BF6EC4029508AA500CBF206 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5BF6EC4129508AB500CBF206 /* EpisodeCellViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C1D0692F2767DA8B00883CE8 = {
@@ -656,10 +684,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BF6EC3A294FEB3800CBF206 /* RMEpisode.swift in Sources */,
 				C1D0693C2767DA8B00883CE8 /* AppDelegate.swift in Sources */,
 				5BA4EE41294C8A5B00507FE2 /* FilterPresenter.swift in Sources */,
 				5BD59C66294A3ACE00DDBE59 /* DataFetcher.swift in Sources */,
 				5BA4EE3F294B982F00507FE2 /* UIColor+Assets.swift in Sources */,
+				5BF6EC3F29508A6B00CBF206 /* EpisodeCell.swift in Sources */,
 				5BA4EE21294AB8B900507FE2 /* CharactersResponse.swift in Sources */,
 				5BA4EE48294C8ADF00507FE2 /* FilterAction.swift in Sources */,
 				5BEDBC082947D87000513E3A /* HomeView.swift in Sources */,
@@ -667,6 +697,7 @@
 				5BEDBC032947B02F00513E3A /* APIService.swift in Sources */,
 				5BA4EE16294AB7DF00507FE2 /* HomeState.swift in Sources */,
 				5BA4EE3D294B96F800507FE2 /* UIImage+Color.swift in Sources */,
+				5BF6EC3D294FED4300CBF206 /* DetailViewHeader.swift in Sources */,
 				5BEDBC162948CAC200513E3A /* HomeInteractor.swift in Sources */,
 				5BA4EE1F294AB84D00507FE2 /* UICollectionView+Utils.swift in Sources */,
 				5BA4EE1A294AB80600507FE2 /* HomeAction.swift in Sources */,
@@ -688,6 +719,7 @@
 				5BA4EE2A294B37FC00507FE2 /* CoordinatorProtocol.swift in Sources */,
 				5BEDBC192948CB6900513E3A /* Reducer.swift in Sources */,
 				5B7E2404294A0DAC009D8EA4 /* FilterView.swift in Sources */,
+				5BF6EC4229508AB500CBF206 /* EpisodeCellViewModel.swift in Sources */,
 				C1D069552767DE6800883CE8 /* HomeViewController.swift in Sources */,
 				5BEDBC1B2948CB7300513E3A /* Interactor.swift in Sources */,
 				5BA4EE46294C8ACF00507FE2 /* FilterState.swift in Sources */,

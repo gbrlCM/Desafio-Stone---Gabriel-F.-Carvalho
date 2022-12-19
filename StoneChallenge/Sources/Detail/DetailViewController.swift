@@ -33,29 +33,21 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = character.name
-        contentView.statusContent.text = character.status.rawValue
-        contentView.genderContent.text = character.gender
-        contentView.speciesContent.text = character.species
+        contentView.header.setupContent(status: character.status, species: character.species, gender: character.gender)
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         CurrentEnv
             .image
             .fetch(character.image)
-            .bind(to: contentView.imageView.rx.image)
+            .bind(to: contentView.header.imageBinder)
+            .disposed(by: disposeBag)
+        
+        CurrentEnv
+            .api
+            .fetchEpisodes(character.episode)
+            .map { episodes in episodes.map(EpisodeCellViewModel.init(episode:))}
+            .bind(to: contentView.episodesTable.rx.items(cellIdentifier: EpisodeCell.identifier, cellType: EpisodeCell.self)) { index, item, cell in
+                cell.setup(with: item)
+            }
             .disposed(by: disposeBag)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

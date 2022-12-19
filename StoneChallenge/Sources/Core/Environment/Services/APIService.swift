@@ -22,4 +22,14 @@ final class APIService {
         session.fetch(from: Route.character(page: page, textFilter: name, statusFilter: status).request)
             .decode(type: CharactersResponse.self, decoder: JSONDecoder())
     }
+    
+    func fetchEpisodes(_ episodesURL: [URL]) -> Observable<[RMEpisode]> {
+        Observable
+            .zip(episodesURL.map { session.fetch(from: URLRequest(url: $0)) })
+            .map { episodesData in
+                let jsonDecoder = JSONDecoder()
+                
+                return try episodesData.map { try jsonDecoder.decode(RMEpisode.self, from: $0) }
+            }
+    }
 }

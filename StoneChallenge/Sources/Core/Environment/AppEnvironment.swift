@@ -16,6 +16,7 @@ struct AppEnvironment {
 
 struct API {
     var fetchCharactersList: (String?, Int, RMCharacter.Status?) -> Observable<CharactersResponse> = APIService.shared.fetchCharactersList
+    var fetchEpisodes: ([URL]) -> Observable<[RMEpisode]> = APIService.shared.fetchEpisodes
 }
 
 struct ImageHandler {
